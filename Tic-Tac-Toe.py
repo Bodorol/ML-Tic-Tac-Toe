@@ -1,5 +1,6 @@
 import random
-import sys, os
+import sys
+import os
 
 win_positions = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (2, 4, 6), (0, 4, 8))
 
@@ -15,7 +16,7 @@ class Player:
         self.move(self)
 
 
-def easy_move(player: Player):
+def easy_move(player):
     print('Making move level "easy"')
     x, y = random.randint(0, 2), random.randint(0, 2)
     while player.board[x + 3 * (2 - y)] in ("X", "O"):
@@ -82,7 +83,7 @@ def hard_move(player):
     player.board[best_spot] = player.piece
 
 
-def player_move(player: Player):
+def player_move(player):
     try:
         x, y = map(lambda num: int(num) if num.isdigit() else False, input("Enter the coordinates: ").split())
     except:
